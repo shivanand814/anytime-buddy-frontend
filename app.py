@@ -100,7 +100,7 @@ if st.session_state.conversation_url is None:
     </style>
     """, unsafe_allow_html=True)
 
-    st.markdown("<h1>You've never met<br>Shawn like this.</h1>", unsafe_allow_html=True)
+    st.markdown("<h1>Have you ever met<br>Someone like Shawn?</h1>", unsafe_allow_html=True)
     st.markdown("<p class='subtitle'>A companion that looks and feels human. Because he can finally see, hear, and emotionally understand you, all in real-time.</p>", unsafe_allow_html=True)
     
     # Use columns to perfectly center the Start button beneath the text
