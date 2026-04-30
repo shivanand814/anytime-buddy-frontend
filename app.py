@@ -3,7 +3,7 @@ import requests
 import streamlit.components.v1 as components
 
 # --- PAGE CONFIGURATION ---
-st.set_page_config(page_title="Anytime Buddy", page_icon="✨", layout="wide", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="Anytime Buddy", page_icon="", layout="wide", initial_sidebar_state="collapsed")
 
 # --- GLOBAL CSS & FONTS ---
 st.markdown("""
