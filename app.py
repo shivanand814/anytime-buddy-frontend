@@ -1,9 +1,36 @@
 import streamlit as st
 import requests
 import streamlit.components.v1 as components
+import base64
+import os
 
 # --- PAGE CONFIGURATION ---
-st.set_page_config(page_title="Anytime Buddy", page_icon="", layout="wide", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="Anytime Buddy", page_icon="✨", layout="wide", initial_sidebar_state="collapsed")
+
+# --- FLOATING LOGO FUNCTION ---
+def add_floating_logo(image_path):
+    """Reads a local image and pins it to the top left corner using CSS."""
+    if os.path.exists(image_path):
+        with open(image_path, "rb") as image_file:
+            encoded_string = base64.b64encode(image_file.read()).decode()
+        
+        logo_html = f"""
+        <style>
+            .floating-logo {{
+                position: fixed;
+                top: 20px;
+                left: 30px;
+                z-index: 999999; /* Ensures it stays on top of the video */
+                width: 140px; /* Adjust this to make your logo bigger/smaller */
+            }}
+        </style>
+        <img src="data:image/png;base64,{encoded_string}" class="floating-logo">
+        """
+        st.markdown(logo_html, unsafe_allow_html=True)
+
+# Inject the logo immediately
+add_floating_logo("asb_logo_dark.png")
+
 
 # --- GLOBAL CSS & FONTS ---
 st.markdown("""
@@ -100,7 +127,7 @@ if st.session_state.conversation_url is None:
     </style>
     """, unsafe_allow_html=True)
 
-    st.markdown("<h1>Have You Ever Met<br>Someone like Shawn?</h1>", unsafe_allow_html=True)
+    st.markdown("<h1>You've never met<br>Shawn like this.</h1>", unsafe_allow_html=True)
     st.markdown("<p class='subtitle'>A companion that looks and feels human. Because he can finally see, hear, and emotionally understand you, all in real-time.</p>", unsafe_allow_html=True)
     
     # Use columns to perfectly center the Start button beneath the text
